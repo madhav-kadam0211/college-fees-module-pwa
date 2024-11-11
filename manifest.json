@@ -1,0 +1,12 @@
+{
+    "name": "College Fees Payment App",
+    "short_name": "FeesApp",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "description": "A PWA for managing college fee payments.",
+    "icons": [
+    
+    ]
+  }
+  
