@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Payment Gateway</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div id="paymentStatus"></div>
+            <div id="feesPaid"></div>
+            <div id="remainingFees"></div>
+        </div>
+    </main>
+    <script>
+        // Function to show payment details on the gateway page
+        function showPaymentDetails() {
+            const paymentStatus = document.getElementById("paymentStatus");
+            const feesPaidDisplay = document.getElementById("feesPaid");
+            const remainingFeesDisplay = document.getElementById("remainingFees");
+
+            const totalFee = localStorage.getItem("totalFee");
+            const feesPaid = localStorage.getItem("feesPaid");
+            const remainingFee = localStorage.getItem("remainingFee");
+
+            paymentStatus.textContent = "Payment Successful!";
+            feesPaidDisplay.textContent = `Total Fees Paid: ₹${feesPaid}`;
+            remainingFeesDisplay.textContent = `Remaining Fees: ₹${remainingFee}`;
+
+            // If fees are fully paid, show a message and redirect
+            if (remainingFee <= 0) {
+                alert("Full payment received! All fees have been paid.");
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2000);
+            }
+        }
+
+        // Call the function to display payment details
+        showPaymentDetails();
+    </script>
+</body>
+</html>
